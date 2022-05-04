@@ -12,7 +12,8 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "centos7"
   #config.vm.network "private_network", ip: "192.168.250.10"
   config.ssh.insert_key = false
-  
+  config.vm.boot_timeout = 1800 # 30 minutes
+
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "4000"
     vb.cpus = 2

@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 
 echo " ************ START: POST INTALL START ************ "
-sudo rm -rf /tmp/* 
-sudo yum clean all
-history -c
-
 # 3ks permission
 sudo chmod 644 /etc/rancher/k3s/k3s.yaml
 
@@ -13,5 +9,15 @@ sudo usermod -aG docker vagrant
 
 # Start docker
 sudo systemctl start docker
+
+cho "==> Clean up yum cache of metadata and packages to save space"
+yum -y --enablerepo='*' clean all
+sudo yum clean all
+
+echo "==> Clear core files"
+rm -f /core*
+
+echo "==> Removing temporary files used to build box"
+rm -rf /tmp/*
 
 echo " ************ FINISHED ************ "
