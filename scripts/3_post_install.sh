@@ -10,7 +10,7 @@ sudo usermod -aG docker vagrant
 # Start docker
 sudo systemctl start docker
 
-cho "==> Clean up yum cache of metadata and packages to save space"
+echo "==> Clean up yum cache of metadata and packages to save space"
 yum -y --enablerepo='*' clean all
 sudo yum clean all
 
